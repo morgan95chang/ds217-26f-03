@@ -72,6 +72,8 @@ Each line is a label, a colon, and the value. Command substitution from the lect
 
 ```bash
 echo "python: $(python3 --version)" > output/environment.txt
+echo "numpy: $(python3 -c 'import numpy as np; print(np.__version__)')" >> output/environment.txt
+echo "interpreter: $(which python3)" >> output/environment.txt
 ```
 
 Lecture 03 gives the one-line Python commands that print the installed NumPy version and the interpreter path. Quotes inside `$( )` belong to the command inside it, so a `python3 -c "..."` command goes inside `echo "numpy: $(...)"` unchanged.
